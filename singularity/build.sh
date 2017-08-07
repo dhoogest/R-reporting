@@ -3,9 +3,14 @@
 set -e
 
 if [[ -z $1 ]]; then
-    echo "usage: ./build.sh <tag>"
+    echo "usage: ./build.sh <tag> [<outdir>]"
     exit 1
 fi
+
+outdir=$(readlink -f ${2-.})
+
+echo $outdir
+exit
 
 tag=$1
 img=r-reporting-${tag}.img
@@ -18,4 +23,4 @@ if [[ ! -f $img ]]; then
 fi
 
 rm $singfile
-ln -f $img ..
+
