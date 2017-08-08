@@ -9,9 +9,6 @@ fi
 
 outdir=$(readlink -f ${2-.})
 
-echo $outdir
-exit
-
 tag=$1
 img=r-reporting-${tag}.img
 singfile=$(mktemp Singularity-XXXXXX)
